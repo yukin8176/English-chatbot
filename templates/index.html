@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <title>AI Chatbot</title>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="headline">
+        <a>AI Chatbot</a>
+      </h1>
+    </header>
+
+    <form action="/" method="post">
+      <input type="text" name="user_input">
+    </form>
+
+    {% for msg in messages %}
+    {% if msg[0]==0 %}
+    <!-- userだった時のやつ -->
+    <div class="container">
+      <div class="balloon1">
+        <p>{{ msg[1] }}</p>
+      </div>
+    </div>
+    {% elif msg[0]==1 %}
+    <!-- botだったときのやつ -->
+    <div class="container">
+      <div class="balloon2">
+        <p>{{ msg[1] }}</p>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </body>
+
+
+</html>
